@@ -3,16 +3,14 @@ function displayMessage() {
 
   process.stdin.on('readable', () => {
     const name = process.stdin.read();
-
-    if (name.length !== null) {
-      process.stdout.write(`Your name is: ${name}`);
+    if (name !== null) {
+      console.log(`Your name is: ${name.toString().trim()}`);
     }
   });
   process.on('exit', () => {
-    process.stdout.write('This important software is now closing\n');
+    console.log('This important software is now closing\n');
   });
 }
-
 module.exports = displayMessage;
 
 if (require.main === module) {
