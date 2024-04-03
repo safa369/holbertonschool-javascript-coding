@@ -4,7 +4,7 @@ function displayMessage() {
   process.stdin.on('readable', () => {
     const name = process.stdin.read();
 
-    if (name.length > 0) {
+    if (name.length !== null) {
       process.stdout.write(`Your name is: ${name}`);
     }
   });
