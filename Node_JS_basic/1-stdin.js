@@ -1,12 +1,15 @@
 function displayMessage() {
-  console.log('Welcome to Holberton School, what is your name?');
-  process.stdin.on('data', (data) => {
-    const input = data.toString()
-    console.log(`Your name is: ${input}`);
-    process.exit(0);
+  console.log('Welcome to Holberton School, what is your name?\n');
+
+  process.stdin.on('readable', () => {
+    const name = process.stdin.read();
+
+    if (name.length > 0) {
+      process.stdout.write(`Your name is: ${name}`);
+    }
   });
   process.on('exit', () => {
-    console.log('This important software is now closing');
+    process.stdout.write('This important software is now closing\n');
   });
 }
 
