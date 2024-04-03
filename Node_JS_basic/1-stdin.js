@@ -1,4 +1,3 @@
-function displayMessage() {
   console.log('Welcome to Holberton School, what is your name?\n');
 
   process.stdin.on('readable', () => {
@@ -8,11 +7,5 @@ function displayMessage() {
     }
   });
   process.on('exit', () => {
-    console.log('This important software is now closing\n');
-  });
-}
-module.exports = displayMessage;
+    console.log('This important software is now closing\n');});
 
-if (require.main === module) {
-  displayMessage();
-}
